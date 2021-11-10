@@ -1,6 +1,6 @@
 const { Sequelize } = require("sequelize");
 var axios = require("axios").default;
-
+require("dotenv").config();
 const unicodedUrl = new Sequelize(
   process.env.DATABASE_URL || "postgres://localhost/movies"
 );
@@ -11,7 +11,7 @@ var options = {
   params: { q: "Harry Potter" },
   headers: {
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
-    "x-rapidapi-key": "a24c2adaa9msh4e35f50fd42ecebp15a3bbjsnb2a103b118fa",
+    "x-rapidapi-key": process.env.SECRET_API_KEY,
   },
 };
 
